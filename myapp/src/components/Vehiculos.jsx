@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import ShinyButton from './magicui/shiny-button'
 
 const vehicles = [
   {
@@ -62,9 +63,9 @@ export function VehicleShowcase() {
                     </li>
                   ))}
                 </ul>
-                <button className="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">
+                <ShinyButton className="mt-6 w-full text-white py-2 px-4 rounded-md hover:bg-white-700 transition duration-300 ease-in-out">
                   Ver Detalles
-                </button>
+                </ShinyButton>
               </div>
             </div>
           ))}
