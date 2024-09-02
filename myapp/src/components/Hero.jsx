@@ -6,19 +6,19 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const slides = [
   {
-    image: '/placeholder.svg?height=600&width=1200',
-    title: 'Bienvenido a Nuestra Tienda',
-    description: 'Descubre nuestra colección exclusiva de productos'
+    image: '/img/v6.jpg?height=600&width=1200',
+    title: 'Bienvenido a concesionaria AutoElite Motors',
+    description: 'Descubrí nuestros vehículos a la venta'
   },
   {
-    image: '/placeholder.svg?height=600&width=1200',
+    image: '/img/vento.jpg?height=600&width=1200',
     title: 'Ofertas Especiales',
     description: 'No te pierdas nuestras increíbles ofertas de temporada'
   },
   {
-    image: '/placeholder.svg?height=600&width=1200',
-    title: 'Nuevos Arrivals',
-    description: 'Explora las últimas tendencias en moda y accesorios'
+    image: '/img/bmw.jpg?height=600&width=1200',
+    title: 'Contacte con nosotros',
+    description: 'Rellene el formulario de contacto si desea solicitar cotización'
   }
 ]
 
