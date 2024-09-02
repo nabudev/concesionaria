@@ -10,14 +10,13 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <button className="text-gray-800 font-bold text-xl">Logo</button>
+            <button className="text-gray-800 font-bold text-xl">AutoElite Motors</button>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               <button className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Inicio</button>
-              <button className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Productos</button>
-              <button className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Servicios</button>
-              <button className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Contacto</button>
+              <button className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Vehículos</button>
+              <button className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Contactanos</button>
             </div>
           </div>
           <div className="md:hidden">
@@ -40,9 +39,8 @@ export function Navbar() {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <button className="text-gray-600 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Inicio</button>
-            <button className="text-gray-600 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Productos</button>
-            <button className="text-gray-600 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Servicios</button>
-            <button className="text-gray-600 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Contacto</button>
+            <button className="text-gray-600 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Vehículos</button>
+            <button className="text-gray-600 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Contactanos</button>
           </div>
         </div>
       )}
