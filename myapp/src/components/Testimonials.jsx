@@ -9,35 +9,35 @@ const testimonials = [
     id: 1,
     name: "María García",
     role: "Empresaria",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/img/cliente.png?height=100&width=100",
     quote: "Comprar mi nuevo coche en AutoMotriz Elegance fue una experiencia increíble. El servicio al cliente es excepcional y encontré exactamente lo que buscaba."
   },
   {
     id: 2,
     name: "Carlos Rodríguez",
     role: "Ingeniero",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/img/cliente.png?height=100&width=100",
     quote: "La atención personalizada y el conocimiento del personal me ayudaron a tomar la mejor decisión. Estoy encantado con mi nuevo vehículo."
   },
   {
     id: 3,
     name: "Ana Martínez",
     role: "Médica",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/img/cliente.png?height=100&width=100",
     quote: "AutoMotriz Elegance ofrece una selección impresionante de coches y un proceso de compra sin complicaciones. Altamente recomendado."
   },
   {
     id: 4,
     name: "Juan Pérez",
     role: "Profesor",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/img/cliente.png?height=100&width=100",
     quote: "Excelente servicio post-venta. Siempre están dispuestos a ayudar y resolver cualquier duda. Me siento muy satisfecho con mi compra."
   },
   {
     id: 5,
     name: "Laura Sánchez",
     role: "Diseñadora",
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/img/cliente.png?height=100&width=100",
     quote: "La variedad de opciones de financiamiento que ofrecen hizo posible que pudiera adquirir el coche de mis sueños. ¡Gracias AutoMotriz Elegance!"
   }
 ]
