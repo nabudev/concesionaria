@@ -11,7 +11,7 @@ const vehicles = [
     description: 'Elegante y eficiente, perfecto para la ciudad y viajes largos.',
     price: '$25,000',
     features: ['30 mpg ciudad', 'Asientos de cuero', 'Sistema de navegación'],
-    image: '/placeholder.svg?height=300&width=400'
+    image: '/img/sedan.jpg?height=300&width=400'
   },
   {
     id: 2,
@@ -19,15 +19,15 @@ const vehicles = [
     description: 'Espacioso y seguro, ideal para familias aventureras.',
     price: '$35,000',
     features: ['7 asientos', 'Tracción en las 4 ruedas', 'Sistema de entretenimiento trasero'],
-    image: '/placeholder.svg?height=300&width=400'
+    image: '/img/suv.jpg?height=300&width=400'
   },
   {
     id: 3,
-    name: 'Deportivo Veloz GT',
-    description: 'Potencia y estilo en un paquete aerodinámico.',
-    price: '$50,000',
+    name: 'Toyota V6 2024',
+    description: 'Potencia ideal para trabajo en campo.',
+    price: '$30,000',
     features: ['0-60 mph en 3.5s', 'Modo de conducción deportiva', 'Interior de fibra de carbono'],
-    image: '/placeholder.svg?height=300&width=400'
+    image: '/img/toyota.jpg?height=300&width=400'
   }
 ]
 
