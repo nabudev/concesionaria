@@ -11,42 +11,26 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { PlusIcon, Pencil, Trash2, Upload } from 'lucide-react'
-
-const initialVehicles = [
-  { 
-    id: 1, 
-    name: 'Sedan Ejecutivo 2023', 
-    description: 'Elegante y eficiente, perfecto para la ciudad y viajes largos.', 
-    price: 25000,
-    features: ['30 mpg ciudad', 'Asientos de cuero', 'Sistema de navegación'],
-    image: '/placeholder.svg?height=200&width=300'
-  },
-  { 
-    id: 2, 
-    name: 'SUV Familiar XL', 
-    description: 'Espacioso y seguro, ideal para familias aventureras.', 
-    price: 35000,
-    features: ['7 asientos', 'Tracción en las 4 ruedas', 'Sistema de entretenimiento trasero'],
-    image: '/placeholder.svg?height=200&width=300'
-  },
-  { 
-    id: 3, 
-    name: 'Deportivo Veloz GT', 
-    description: 'Potencia y estilo en un paquete aerodinámico.', 
-    price: 50000,
-    features: ['0-60 mph en 3.5s', 'Modo de conducción deportiva', 'Interior de fibra de carbono'],
-    image: '/placeholder.svg?height=200&width=300'
-  },
-]
+import { useEffect } from 'react';
+import { getAllVehicles, createVehicle, updateVehicle, deleteVehicle } from '@/api/api';
 
 export function AdminVehiclePanel() {
-  const [vehicles, setVehicles] = useState(initialVehicles)
+  const [vehicles, setVehicles] = useState([])
   const [currentVehicle, setCurrentVehicle] = useState({ id: null, name: '', description: '', price: '', features: [], image: '' })
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
   const [newFeature, setNewFeature] = useState('')
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false)
   const [actionToConfirm, setActionToConfirm] = useState(null)
+
+  useEffect(() => {
+    // Obtener los vehículos cuando el componente se monta
+    const fetchVehicles = async () => {
+      const vehiclesData = await getAllVehicles();
+      setVehicles(vehiclesData);
+    };
+    fetchVehicles();
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -81,39 +65,41 @@ export function AdminVehiclePanel() {
     }
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setActionToConfirm(() => () => {
-      if (isEditing) {
-        setVehicles(vehicles.map(vehicle => vehicle.id === currentVehicle.id ? currentVehicle : vehicle))
-      } else {
-        setVehicles([...vehicles, { ...currentVehicle, id: Date.now() }])
-      }
-      setIsDialogOpen(false)
-      setCurrentVehicle({ id: null, name: '', description: '', price: '', features: [], image: '' })
-      setIsEditing(false)
-    })
-    setIsConfirmDialogOpen(true)
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isEditing) {
+      // Actualizar vehículo existente
+      await updateVehicle(currentVehicle.id, currentVehicle);
+      setVehicles(vehicles.map(vehicle => vehicle.id === currentVehicle.id ? currentVehicle : vehicle));
+    } else {
+      // Agregar nuevo vehículo
+      const newVehicle = await createVehicle(currentVehicle);
+      setVehicles([...vehicles, newVehicle]);
+    }
+    setIsDialogOpen(false);
+    setCurrentVehicle({ id: null, name: '', description: '', price: '', features: [], image: '' });
+    setIsEditing(false);
+  };
 
   const handleEdit = (vehicle) => {
-    setCurrentVehicle(vehicle)
-    setIsEditing(true)
-    setIsDialogOpen(true)
-  }
+    setCurrentVehicle(vehicle);
+    setIsEditing(true);
+    setIsDialogOpen(true);
+  };
 
   const handleDelete = (id) => {
-    setActionToConfirm(() => () => {
-      setVehicles(vehicles.filter(vehicle => vehicle.id !== id))
-    })
-    setIsConfirmDialogOpen(true)
-  }
+    setActionToConfirm(() => async () => {
+      await deleteVehicle(id);
+      setVehicles(vehicles.filter(vehicle => vehicle.id !== id));
+    });
+    setIsConfirmDialogOpen(true);
+  };
 
   const confirmAction = () => {
-    actionToConfirm()
-    setIsConfirmDialogOpen(false)
-    setActionToConfirm(null)
-  }
+    actionToConfirm();
+    setIsConfirmDialogOpen(false);
+    setActionToConfirm(null);
+  };
 
   return (
     <div className="container mx-auto p-4">

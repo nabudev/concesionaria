@@ -13,17 +13,6 @@ export const getAllVehicles = async () => {
   }
 };
 
-// Obtener un vehículo por ID
-export const getVehicleById = async (vehicleId) => {
-  try {
-    const response = await axios.get(`${API_URL}/${vehicleId}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching vehicle:', error);
-    throw error;
-  }
-};
-
 // Crear un vehículo
 export const createVehicle = async (vehicleData) => {
   try {
