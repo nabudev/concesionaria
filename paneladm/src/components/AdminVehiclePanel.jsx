@@ -173,7 +173,7 @@ export function AdminVehiclePanel() {
                         type="button" 
                         variant="outline" 
                         size="sm"
-                        onClick={() => handleDelete(index)}
+                        onClick={() => handleRemoveFeature(index)}
                       >
                         Eliminar
                       </Button>

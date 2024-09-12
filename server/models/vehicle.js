@@ -5,7 +5,7 @@ const vehicleSchema = new mongoose.Schema({
     description: { type: String, required: true },
     price: { type: Number, required: true },
     features: [String],
-    imageUrl: { type: String, required: true },
+    imageUrl: { type: String, required: false },
 }, {
     timestamps: true // Esto añade los campos createdAt y updatedAt
 });
