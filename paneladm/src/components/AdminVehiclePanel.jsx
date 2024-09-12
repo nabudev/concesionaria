@@ -16,7 +16,7 @@ import { getAllVehicles, createVehicle, updateVehicle, deleteVehicle } from '@/a
 
 export function AdminVehiclePanel() {
   const [vehicles, setVehicles] = useState([])
-  const [currentVehicle, setCurrentVehicle] = useState({ id: null, name: '', description: '', price: '', features: [], image: '' })
+  const [currentVehicle, setCurrentVehicle] = useState({ id: null, name: '', description: '', price: '', features: [], imageUrl: '' })
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
   const [newFeature, setNewFeature] = useState('')
@@ -77,20 +77,20 @@ export function AdminVehiclePanel() {
       setVehicles([...vehicles, newVehicle]);
     }
     setIsDialogOpen(false);
-    setCurrentVehicle({ id: null, name: '', description: '', price: '', features: [], image: '' });
+    setCurrentVehicle({ id: null, name: '', description: '', price: '', features: [], imageUrl: '' });
     setIsEditing(false);
   };
 
-  const handleEdit = (vehicle) => {
-    setCurrentVehicle(vehicle);
+  const handleEdit = (vehicleId) => {
+    setCurrentVehicle(vehicleId);
     setIsEditing(true);
     setIsDialogOpen(true);
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = (vehicleId) => {
     setActionToConfirm(() => async () => {
-      await deleteVehicle(id);
-      setVehicles(vehicles.filter(vehicle => vehicle.id !== id));
+      await deleteVehicle(vehicleId);
+      setVehicles(vehicles.filter(vehicle => vehicle._id !== vehicleId));
     });
     setIsConfirmDialogOpen(true);
   };
@@ -173,7 +173,7 @@ export function AdminVehiclePanel() {
                         type="button" 
                         variant="outline" 
                         size="sm"
-                        onClick={() => handleRemoveFeature(index)}
+                        onClick={() => handleDelete(index)}
                       >
                         Eliminar
                       </Button>
@@ -232,7 +232,7 @@ export function AdminVehiclePanel() {
         </TableHeader>
         <TableBody>
           {vehicles.map((vehicle) => (
-            <TableRow key={vehicle.id}>
+            <TableRow key={vehicle._id}>
               <TableCell>
                 <Image
                   src={vehicle.image}
@@ -256,7 +256,7 @@ export function AdminVehiclePanel() {
                 <Button variant="outline" size="icon" className="mr-2" onClick={() => handleEdit(vehicle)}>
                   <Pencil className="h-4 w-4" />
                 </Button>
-                <Button variant="outline" size="icon" onClick={() => handleDelete(vehicle.id)}>
+                <Button variant="outline" size="icon" onClick={() => handleDelete(vehicle._id)}>
                   <Trash2 className="h-4 w-4" />
                 </Button>
               </TableCell>
