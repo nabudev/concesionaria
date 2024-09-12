@@ -24,17 +24,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Obtener un vehículo por ID (GET)
-router.get('/:id', async (req, res) => {
-    try {
-        const vehicle = await Vehicle.findById(req.params.id);
-        if (!vehicle) return res.status(404).json({ message: 'Vehículo no encontrado' });
-        res.status(200).json(vehicle);
-    } catch (error) {
-        res.status(500).json({ message: 'Error al obtener el vehículo', error });
-    }
-});
-
 // Actualizar un vehículo (PUT)
 router.put('/:id', async (req, res) => {
     try {
