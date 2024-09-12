@@ -192,9 +192,9 @@ export function AdminVehiclePanel() {
                     className="hidden"
                   />
                   <Label htmlFor="image" className="cursor-pointer flex items-center justify-center w-full h-32 border-2 border-dashed rounded-md hover:border-primary">
-                    {currentVehicle.image ? (
+                    {currentVehicle.imageUrl ? (
                       <Image
-                        src={currentVehicle.image}
+                        src={currentVehicle.imageUrl}
                         alt="Vista previa del vehículo"
                         width={200}
                         height={100}
