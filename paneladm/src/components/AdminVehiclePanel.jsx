@@ -69,8 +69,8 @@ export function AdminVehiclePanel() {
     e.preventDefault();
     if (isEditing) {
       // Actualizar vehículo existente
-      await updateVehicle(currentVehicle.id, currentVehicle);
-      setVehicles(vehicles.map(vehicle => vehicle.id === currentVehicle.id ? currentVehicle : vehicle));
+      await updateVehicle(currentVehicle._id, currentVehicle);
+      setVehicles(vehicles.map(vehicle => vehicle._id === currentVehicle._id ? currentVehicle : vehicle));
     } else {
       // Agregar nuevo vehículo
       const newVehicle = await createVehicle(currentVehicle);
@@ -81,8 +81,8 @@ export function AdminVehiclePanel() {
     setIsEditing(false);
   };
 
-  const handleEdit = (vehicleId) => {
-    setCurrentVehicle(vehicleId);
+  const handleEdit = (vehicle) => {
+    setCurrentVehicle(vehicle);
     setIsEditing(true);
     setIsDialogOpen(true);
   };
